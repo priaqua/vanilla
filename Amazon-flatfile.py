@@ -19,13 +19,13 @@ ham=driver.find_element(By.XPATH, '//*[@id="nav-hamburger-menu"]')
 ham.click()
 
 #Locate scroll and click TV, Appliance, Electranics
-element_TAE= driver.find_element(By.XPATH, '//*[@id="hmenu-content"]/ul[1]/li[16]/a')
+element_TAE= driver.find_element(By.XPATH, '//*[@id="hmenu-content"]//a[@class="hmenu-item"]//div[contains(text(),"TV, Appliances, Electronics")]')
 driver.execute_script("arguments[0].scrollIntoView(true);", element_TAE)
 time.sleep(5)
 element_TAE.click()
 
 #Locate and click TV
-element_TV= driver.find_element(By.XPATH, '//*[@id="hmenu-content"]/ul[9]/li[3]/a')
+element_TV= driver.find_element(By.XPATH, '*//a[@class="hmenu-item"][contains(text(),"Televisions")]')
 driver.execute_script("arguments[0].scrollIntoView(true);", element_TV)
 time.sleep(5)
 element_TV.click()
@@ -34,13 +34,15 @@ element_TV.click()
 # Scroll to element Samsung and select checkbox(Change to better queries)
 #Locate Brand
 time.sleep(5)
-element = driver.find_element(By.XPATH, '//*[@id="s-refinements"]/div[21]')
+#element = driver.find_element(By.XPATH, '//*[@id="s-refinements"]/div[21]')
+element = driver.find_element(By.XPATH, '//*[@id="s-refinements"]//div//span[(text()="Brands")]')
 driver.execute_script("arguments[0].scrollIntoView(true);", element)
 time.sleep(5)
 
 #Select Samsung
 #eventhough Xpath is pointing to Samsung click is on LG/Kodak intermittently-------Bug Fix it
-sam_e=driver.find_element(By.XPATH,'//*[@id="s-refinements"]/div[21]/ul/li[6]/span/a/div/label/i')
+#sam_e=driver.find_element(By.XPATH,'//*[@id="s-refinements"]/div[21]/ul/li[6]/span/a/div/label/i')
+sam_e=driver.find_element(By.XPATH,'//*[@id="s-refinements"]//div//span[contains (text(), "Samsung")]')
 sam_e.click()
 
 #Select Sort By Dropdown
