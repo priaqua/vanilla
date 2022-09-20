@@ -9,51 +9,55 @@ driver=webdriver.Chrome()
 driver.get('https://www.amazon.in')
 driver.maximize_window()
 window_before = driver.window_handles[0]
+driver.implicitly_wait(5)
 
 ###################
-assert driver.find_element(By.CLASS_NAME, 'hm-icon-label'), "Cannot find Menu"
+assert driver.find_element(By.CLASS_NAME, 'hm-icon-label'), "Cannot find Menu on Home Page"
 ###################HOMEPAGE
 
 #click menu
 ham=driver.find_element(By.XPATH, '//*[@id="nav-hamburger-menu"]')
 ham.click()
 
+
 #Locate scroll and click TV, Appliance, Electranics
+element_shop_by_dept=driver.find_element(By.XPATH, '//*[contains(@class,"hmenu-title")][text()="shop by department"]')
+driver.execute_script("arguments[0].scrollIntoView(true);", element_shop_by_dept)
 element_TAE= driver.find_element(By.XPATH, '//*[@id="hmenu-content"]//a[@class="hmenu-item"]//div[contains(text(),"TV, Appliances, Electronics")]')
 driver.execute_script("arguments[0].scrollIntoView(true);", element_TAE)
-time.sleep(5)
 element_TAE.click()
 
 #Locate and click TV
 element_TV= driver.find_element(By.XPATH, '*//a[@class="hmenu-item"][contains(text(),"Televisions")]')
 driver.execute_script("arguments[0].scrollIntoView(true);", element_TV)
-time.sleep(5)
 element_TV.click()
+assert driver.find_element(By.XPATH, '//*[@id="nav-search-label-id"][text()="Televisions"]'),"Television page did not load"
 
 ################TELEVISION
 # Scroll to element Samsung and select checkbox(Change to better queries)
 #Locate Brand
-time.sleep(5)
 #element = driver.find_element(By.XPATH, '//*[@id="s-refinements"]/div[21]')
-element = driver.find_element(By.XPATH, '//*[@id="s-refinements"]//div//span[(text()="Brands")]')
-driver.execute_script("arguments[0].scrollIntoView(true);", element)
-time.sleep(5)
+element_Brand = driver.find_element(By.XPATH, '//*[@id="s-refinements"]//div//span[(text()="Brands")]')
+driver.execute_script("arguments[0].scrollIntoView(true);", element_Brand)
 
 #Select Samsung
-#eventhough Xpath is pointing to Samsung click is on LG/Kodak intermittently-------Bug Fix it
-#sam_e=driver.find_element(By.XPATH,'//*[@id="s-refinements"]/div[21]/ul/li[6]/span/a/div/label/i')
-sam_e=driver.find_element(By.XPATH,'//*[@id="s-refinements"]//div//span[contains (text(), "Samsung")]')
-sam_e.click()
+#commenting as Samsung is not available on Amazon
+# element_S=driver.find_element(By.XPATH,'//*[@id="s-refinements"]//div//span[contains (text(), "Samsung")]')
+# element_S.click()
+
+#20th Samsung is not on Amazon site so to test changed the script to find LG....will revert back once Samsung is available
+element_LG=driver.find_element(By.XPATH, '//*[@id="s-refinements"]//div//span[contains (text(), "LG")]')
+element_LG.click()
+assert driver.find_element(By.XPATH,'//*[contains(@id,"LG")]'), "LG is not selected"
+
 
 #Select Sort By Dropdown
-time.sleep(5)
+
 sort_dropdown=driver.find_element(By.CLASS_NAME, 'a-dropdown-label')
-time.sleep(3)
 sort_dropdown.click()
 
 #select High to Low
 H_L=driver.find_element(By.ID, 's-result-sort-select_2')
-time.sleep(3)
 H_L.click()
 
 
@@ -65,6 +69,11 @@ window_after = driver.window_handles[1]
 
 #Switch to Second_H window
 driver.switch_to.window(window_after)
+element_brand_pg = driver.find_element(By.XPATH, '//*[contains(@class,"a-text-bold")][text()="Brand"]')
+driver.execute_script("arguments[0].scrollIntoView(true);", element_brand_pg)
+assert driver.find_element(By.XPATH, ('//*[@class="a-size-base"][text()="LG"]')),"Expected Brand is not selected"
+
+
 
 ########Selected Samsung TV details page
 Item=driver.find_element(By.XPATH,'//*[@id="feature-bullets"]/h1')
