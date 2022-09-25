@@ -1,0 +1,121 @@
+Folder PATH listing
+Volume serial number is 0AA4-23F6
+C:.
+|   driver_config.py
+|   output.doc
+|   __init__.py
+|   
++---.pytest_cache
+|   |   .gitignore
+|   |   CACHEDIR.TAG
+|   |   README.md
+|   |   
+|   \---v
+|       \---cache
+|               lastfailed
+|               nodeids
+|               stepwise
+|               
++---SRC
+|   |   __init__.py
+|   |   
+|   +---PageObject
+|   |   |   __init__.py
+|   |   |   
+|   |   +---Locators
+|   |   |   |   Home.py
+|   |   |   |   Sam_About_Item.py
+|   |   |   |   Television.py
+|   |   |   |   __init__.py
+|   |   |   |   
+|   |   |   \---__pycache__
+|   |   |           Home.cpython-310.pyc
+|   |   |           __init__.cpython-310.pyc
+|   |   |           
+|   |   +---Pages
+|   |   |   |   Home.py
+|   |   |   |   Sam_About_Item.py
+|   |   |   |   Television.py
+|   |   |   |   __init__.py
+|   |   |   |   
+|   |   |   +---.pytest_cache
+|   |   |   |   |   .gitignore
+|   |   |   |   |   CACHEDIR.TAG
+|   |   |   |   |   README.md
+|   |   |   |   |   
+|   |   |   |   \---v
+|   |   |   |       \---cache
+|   |   |   |               lastfailed
+|   |   |   |               nodeids
+|   |   |   |               stepwise
+|   |   |   |               
+|   |   |   \---__pycache__
+|   |   |           Home.cpython-310.pyc
+|   |   |           test_extra_pg.cpython-310-pytest-7.1.3.pyc
+|   |   |           __init__.cpython-310.pyc
+|   |   |           
+|   |   \---__pycache__
+|   |           __init__.cpython-310.pyc
+|   |           
+|   +---TestBase
+|   |   |   TestBase_remote.py
+|   |   |   WebdriverSetup.py
+|   |   |   
+|   |   \---__pycache__
+|   |           WebdriverSetup.cpython-310.pyc
+|   |           
+|   \---__pycache__
+|           __init__.cpython-310.pyc
+|           
++---Tests
+|   |   __init__.py
+|   |   
+|   +---.pytest_cache
+|   |   |   .gitignore
+|   |   |   CACHEDIR.TAG
+|   |   |   README.md
+|   |   |   
+|   |   \---v
+|   |       \---cache
+|   |               lastfailed
+|   |               nodeids
+|   |               stepwise
+|   |               
+|   +---Scripts
+|   |   |   Home.py
+|   |   |   Sam_About_Item.py
+|   |   |   Television.py
+|   |   |   Testcase_extra.py
+|   |   |   __init__.py
+|   |   |   
+|   |   +---.pytest_cache
+|   |   |   |   .gitignore
+|   |   |   |   CACHEDIR.TAG
+|   |   |   |   README.md
+|   |   |   |   
+|   |   |   \---v
+|   |   |       \---cache
+|   |   |               lastfailed
+|   |   |               nodeids
+|   |   |               stepwise
+|   |   |               
+|   |   \---__pycache__
+|   |           Home.cpython-310.pyc
+|   |           Testcase_extra.cpython-310-pytest-7.1.3.pyc
+|   |           Testcase_extra.cpython-310.pyc
+|   |           Test_extra.cpython-310-pytest-7.1.3.pyc
+|   |           __init__.cpython-310.pyc
+|   |           
+|   +---TestSuites
+|   |       TestRunner.py
+|   |       __init__.py
+|   |       
+|   \---__pycache__
+|           Testsuite.cpython-310-pytest-6.2.5.pyc
+|           Testsuite.cpython-310-pytest-7.1.3.pyc
+|           __init__.cpython-310.pyc
+|           
+\---__pycache__
+        driver_config.cpython-310.pyc
+        __init__.cpython-310.pyc
+        

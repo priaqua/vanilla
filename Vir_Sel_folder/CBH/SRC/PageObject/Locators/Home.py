@@ -9,7 +9,7 @@
 # TV= driver.find_element(By.PARTIAL_LINK_TEXT, 'television')
 # //*[@id="hmenu-content"][@text()="Televisions"]
 
-def assert_Homepg_load(self):
+def assert_homepg_load(self):
         # Locator for assertion -Home page loaded
         assert_menutext = 'hm-icon-label'
 
@@ -18,6 +18,7 @@ class Locator(object):
 
         # Locators for navigation on Home page
         ham_menu='#nav-hamburger-menu>span'
+        element_shop_by_cat='//*[contains(@class,"hmenu-title")][text()="shop by category"]'
         TV_App_Elect='//*[@id="hmenu-content"]//a[@class="hmenu-item"]//div[contains(text(),"TV, Appliances, Electronics")]'
         TV='*//a[@class="hmenu-item"][contains(text(),"Televisions")]'
         #Locator for assertion -Television page loaded

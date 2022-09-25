@@ -9,7 +9,10 @@
 #High_Low               : id
 #Second_Hi              :Xpath
 
-def television_locator():
+
+
+class Locator(object):
+
     #Locator for navigation through Television page
     brand='//*[@id="s-refinements"]//div//span[(text()="Brands")]'
     sam_checkbox='//*[@id="s-refinements"]//div//span[contains (text(), "LG")]'

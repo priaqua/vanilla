@@ -3,7 +3,8 @@
 
 #about_item_txt :Xpath
 
-def AboutText_chk():
+class Locator(object):
+
     #assert correct Brand is selected
     check_brand_pg ='//*[contains(@class,"a-text-bold")][text()="Brand"]'
     assert_brand_name ='//*[@class="a-size-base"][text()="LG"]'

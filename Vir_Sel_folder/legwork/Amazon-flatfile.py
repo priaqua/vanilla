@@ -18,10 +18,13 @@ assert driver.find_element(By.CLASS_NAME, 'hm-icon-label'), "Cannot find Menu on
 #click menu
 ham=driver.find_element(By.XPATH, '//*[@id="nav-hamburger-menu"]')
 ham.click()
+time.sleep(5)
 
 
 #Locate scroll and click TV, Appliance, Electranics
-element_shop_by_dept=driver.find_element(By.XPATH, '//*[contains(@class,"hmenu-title")][text()="shop by department"]')
+#element_shop_by_dept=driver.find_element(By.XPATH, '//*[contains(@class,"hmenu-title")][text()="shop by department"]')
+#Text on the site changed from "Shop by Department" to "Shop By Category"
+element_shop_by_dept=driver.find_element(By.XPATH, '//*[contains(@class,"hmenu-title")][text()="shop by category"]')
 driver.execute_script("arguments[0].scrollIntoView(true);", element_shop_by_dept)
 element_TAE= driver.find_element(By.XPATH, '//*[@id="hmenu-content"]//a[@class="hmenu-item"]//div[contains(text(),"TV, Appliances, Electronics")]')
 driver.execute_script("arguments[0].scrollIntoView(true);", element_TAE)
@@ -42,13 +45,14 @@ driver.execute_script("arguments[0].scrollIntoView(true);", element_Brand)
 
 #Select Samsung
 #commenting as Samsung is not available on Amazon
-# element_S=driver.find_element(By.XPATH,'//*[@id="s-refinements"]//div//span[contains (text(), "Samsung")]')
-# element_S.click()
+element_S=driver.find_element(By.XPATH,'//*[@id="s-refinements"]//div//span[contains (text(), "Samsung")]')
+element_S.click()
+assert driver.find_element(By.XPATH,'//*[contains(@id,"Samsung")]'), "Samsung is not selected"
 
-#20th Samsung is not on Amazon site so to test changed the script to find LG....will revert back once Samsung is available
-element_LG=driver.find_element(By.XPATH, '//*[@id="s-refinements"]//div//span[contains (text(), "LG")]')
-element_LG.click()
-assert driver.find_element(By.XPATH,'//*[contains(@id,"LG")]'), "LG is not selected"
+#20th of September Samsung is not on Amazon site so to test changed the script to find LG....will revert back once Samsung is available
+# element_LG=driver.find_element(By.XPATH, '//*[@id="s-refinements"]//div//span[contains (text(), "LG")]')
+# element_LG.click()
+# assert driver.find_element(By.XPATH,'//*[contains(@id,"LG")]'), "LG is not selected"
 
 
 #Select Sort By Dropdown
@@ -72,15 +76,17 @@ window_after = driver.window_handles[1]
 driver.switch_to.window(window_after)
 element_brand_pg = driver.find_element(By.XPATH, '//*[contains(@class,"a-text-bold")][text()="Brand"]')
 driver.execute_script("arguments[0].scrollIntoView(true);", element_brand_pg)
-assert driver.find_element(By.XPATH, '//*[@class="a-size-base"][text()="LG"]'),"Expected Brand is not selected"
+#20th of September Samsung is not on Amazon site so to test changed the script to find LG....will revert back once Samsung is available
+#assert driver.find_element(By.XPATH, '//*[@class="a-size-base"][text()="LG"]'),"Expected Brand is not selected"
+assert driver.find_element(By.XPATH, '//*[@class="a-size-base"][text()="Samsung"]'),"Expected Brand is not selected"
 
 
 
 ########Selected Samsung TV details page
 Item=driver.find_element(By.XPATH,'//*[@id="feature-bullets"]/h1')
 if Item.text=="About this item":
-    print("Pass- found About this item text on item Samsung TV")
+    print("Pass- found 'About this item' text on item Samsung TV")
 else:
-    print("Test Fail About this item text not found")
+    print("Test Fail 'About this item' text not found")
 
 driver.quit()
